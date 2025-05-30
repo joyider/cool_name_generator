@@ -64,6 +64,7 @@ export async function isPronounceable(name, threshold = -4) {
 }
 /** Generate one fantasy name, respects <EOS>, min/max, temperature… */
 export async function generateName({ seqLen = 10, minLen = 6, maxLen = 12, temperature = 0.8 } = {}) {
+    console.log("JKJ");
     const eosIdx = stoi['<EOS>'];
     let hidden = new _Tensor('float32', new Float32Array(32), [1, 1, 32]);
     const inputSeq = Array(seqLen).fill(0);

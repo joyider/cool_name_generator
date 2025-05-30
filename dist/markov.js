@@ -1,10 +1,26 @@
 #!/usr/bin/env node
+/**
+ * This file is licensed under the European Union Public License (EUPL) v1.2.
+ * You may only use this work in compliance with the License.
+ * You may obtain a copy of the License at:
+ *
+ * https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed "as is",
+ * without any warranty or conditions of any kind.
+ *
+ * Copyright (c) 2024- Andre Karlsson. All rights reserved.
+ *
+ * Created on 5/30/25 :: 10:29 BY joyider <andre(-at-)sess.se>
+ *
+ * This file :: markov.ts is part of the cool_name_generator project.
+ */
 import { readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-// Load base names JSON
 const dataPath = path.resolve(__dirname, '../data/base_names.json');
 let sampleNames;
 try {
@@ -20,9 +36,6 @@ let ORDER = 2;
 const START = () => '^'.repeat(ORDER);
 const END = '$';
 let chain = {};
-/**
- * Build the Markov chain with the given order.
- */
 export function train(names, order = 2) {
     ORDER = order;
     chain = {};
@@ -36,9 +49,6 @@ export function train(names, order = 2) {
         }
     }
 }
-/**
- * Generate a single name from the current chain.
- */
 export function generateName() {
     let res = '', gram = START();
     while (true) {
@@ -53,11 +63,7 @@ export function generateName() {
     }
     return res.charAt(0).toUpperCase() + res.slice(1);
 }
-/**
- * Generate `count` names with the given `order`, each between `minLength` and `maxLength` (inclusive).
- */
 export function generateNames(count = 1, order = 2, minLength = 4, maxLength = 12) {
-    // rebuild chain if needed
     if (Object.keys(chain).length === 0 || ORDER !== order) {
         train(sampleNames, order);
     }

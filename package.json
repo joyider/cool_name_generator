@@ -1,5 +1,5 @@
 {
-  "name": "cool_name_generator",
+  "name": "cool-name-generator",
   "version": "0.0.1",
   "description": "A hefty, cool and unique fantasy sounding name generator  for the masses",
   "main": "dist/index.js",
@@ -12,11 +12,11 @@
   ],
   "type": "module",
   "bin": {
-    "cool-name-generator": "dist/index.js"
+    "cool-name-generator": "dist/bin.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "tsc && cp src/bin.js dist/bin.js",
     "prepare": "npm run build"
   },
   "repository": {
