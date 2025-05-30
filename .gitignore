@@ -1,0 +1,50 @@
+# Node modules
+node_modules/
+
+# Log files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# PEM filer
+# *.pem
+
+# Environment variables
+.env
+.env.*  # Exkluderar alla filer som börjar med .env
+
+# Directory for local database files
+/db/
+
+# Production build
+build/
+
+# Debugging
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+jspm_packages/
+web_modules/
+
+# Optional npm cache directory
+.npm/
+
+# IDEs and editors
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Miscellaneous
+coverage/
+tmp/
+temp/
+.venv/
+
